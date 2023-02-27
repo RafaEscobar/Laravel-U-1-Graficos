@@ -9,24 +9,86 @@
 
 </head>
 <body class="container">
-    <table class="table table-dark table-striped">
-        <thead>
-            <tr>
-              <th scope="col">Entrada</th>
-              <th scope="col">fecha</th>
-              <th scope="col">Usuario</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($registros as $item)    
-                <tr>
-                {{-- <td>{{++$cont}}</td> --}}
-                <td>{{$item->fecha}}</td>
-                <td>{{$item->count}}</td>
-                </tr>
-            @endforeach
-          </tbody>    
-    </table>
 
+    <div class="row">
+        <div class="col">
+            <div id="container">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script>
+
+// Create the chart
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        align: 'left',
+        text: 'Asistencias de la semana '
+    },
+    accessibility: {
+        announceNewData: {
+            enabled: true
+        }
+    },
+    xAxis: {
+        type: 'category'
+    },
+    yAxis: {
+        title: {
+            text: 'Total de asistencias por día'
+        }
+
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        series: {
+            borderWidth: 0,
+            dataLabels: {
+                enabled: true,
+                format: '{point.y}'
+            }
+        }
+    },
+
+    tooltip: {
+        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> asistencia<br/>'
+    },
+
+    series: [
+        {
+            name: 'Asistencias',
+            colorByPoint: true,
+            data: <?= $data ?>
+        }
+    ],
+    drilldown: {
+        breadcrumbs: {
+            position: {
+                align: 'right'
+            }
+        },
+        series: <?= $data ?>
+            
+    }
+});
+    </script>
 </body>
 </html>
+
+
+
+
+

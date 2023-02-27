@@ -1,0 +1,67 @@
+{{-- <table class="table table-dark table-striped">
+    <thead>
+        <tr>
+          <th scope="col">Entrada</th>
+          <th scope="col">fecha</th>
+          <th scope="col">Usuario</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach ($registros as $item)    
+            <tr>
+            <td>{{++$cont}}</td>
+            <td>{{$item->fecha}}</td>
+            <td>{{$item->count}}</td>
+            </tr>
+        @endforeach
+      </tbody>     --}}
+
+      {{-- Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'World\'s largest cities per 2021'
+        },
+        subtitle: {
+            text: 'Source: <a href="https://worldpopulationreview.com/world-cities" target="_blank">World Population Review</a>'
+        },
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Population (millions)'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: 'Population in 2021: <b>{point.y:.1f} millions</b>'
+        },
+        series: [{
+            name: 'Population',
+            data: ,
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                format: '{point.y:.1f}', // one decimal
+                y: 10, // 10 pixels down from the top
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }]
+    }); --}}
