@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/ver', [AttendanceController::class, 'ver']);
+
+Route::get('/ver', [AttendanceController::class, 'ver'])->name('ver');
+Route::get('/inasistencias', [AttendanceController::class, 'inasistencias'])->name('inasistencias');
