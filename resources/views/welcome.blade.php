@@ -24,7 +24,7 @@
                 <a class="nav-link" href="{{route('inasistencias')}}">Inasistencias</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Entradas y salidas</a>
+                <a class="nav-link" href="{{route('entradas-salidas')}}">Entradas y salidas</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Temperatura o voltaje</a>

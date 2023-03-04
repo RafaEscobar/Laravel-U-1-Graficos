@@ -94,6 +94,21 @@ class AttendanceController extends Controller
             $puntos[] = ['name' => $registro['fecha'], 'y' => floatval($faltas), 'drilldown' => $registro['fecha']];
         }
         return view('inasistencias', ['data' => json_encode($puntos)]);
-
     }
+
+    public function entradas_salidas(){
+        $hoy = Carbon::today();
+        $entradas = Attendance::select(Attendance::raw('count(entrada) as count'))->whereDate('fecha', '=', $hoy)->get();
+        $salidas = Attendance::select(Attendance::raw('count(salida)as count'))->whereDate('fecha', '=', $hoy)->get();
+        $entradashoy=0;
+        $salidashoy=0;
+        foreach ($entradas as $item) {
+            $entradashoy = $item['count'];
+        }
+        foreach ($salidas as $item) {
+            $salidashoy = $item['count'];
+        }
+        return view('entradas_salidas', ['entradas' => json_encode($entradashoy), 'salidas' => json_encode($salidashoy) ]);
+    }
+
 }
