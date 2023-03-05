@@ -27,7 +27,10 @@
                 <a class="nav-link" href="{{route('entradas-salidas')}}">Entradas y salidas</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Temperatura o voltaje</a>
+                <a class="nav-link" href="{{route('temperatura-voltaje')}}">Voltaje</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('carga-temp')}}">Temperatura</a>
               </li>
             </ul>
           </div>

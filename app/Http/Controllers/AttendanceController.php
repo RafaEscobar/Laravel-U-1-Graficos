@@ -113,14 +113,13 @@ class AttendanceController extends Controller
 
     public function temperatura_voltaje(){
         $voltaje = 3.5;
-        $temperatura = 24;
-        return view('temperatura_voltaje', ['voltaje' => json_encode($voltaje), 'temperatura' => json_encode($temperatura)]);
+
+        return view('temperatura_voltaje', ['voltaje' => json_encode($voltaje)]);
     }
 
-    public function carga_temp(Request $request){
-        $temp = $request->get('temp');
-        dump($temp);
-        // return view('carga-tempo')->with(['temp' => json_encode($temp)]);
+    public function carga_temp(){
+        $temperatura = 24;
+        return view('carga-temp')->with(['temp' => json_encode($temperatura)]);
     }
 
 }

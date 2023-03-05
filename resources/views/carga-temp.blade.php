@@ -1,18 +1,32 @@
-<div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Temperatura y voltaje</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body class="container">
+
     <figure class="highcharts-figure">
         <div id="container"></div>
-    
     </figure>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-more.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    
-    <script>
-    
-    Highcharts.chart('container', {
-    
+    <div id="loadplace">
+
+    </div>
+
+</body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script>
+
+//???????????????????????????????????????????
+Highcharts.chart('container', {
+
     chart: {
         type: 'gauge',
         plotBackgroundColor: null,
@@ -21,11 +35,11 @@
         plotShadow: false,
         height: '40%'
     },
-    
+
     title: {
-        text: 'Voltaje'
+        text: 'Temperatura'
     },
-    
+
     pane: {
         startAngle: -90,
         endAngle: 89.9,
@@ -33,16 +47,16 @@
         center: ['50%', '75%'],
         size: '110%'
     },
-    
+
     // the value axis
     yAxis: {
         min: 0,
         max: 35,
-        tickPixelInterval: 5,
+        // tickPixelInterval: 10,
         tickPosition: 'inside',
         tickColor: Highcharts.defaultOptions.chart.backgroundColor || '#FFFFFF',
-        tickLength: 5,
-        tickWidth: 4,
+        // tickLength: 5,
+        tickWidth: 6,
         minorTickInterval: null,
         labels: {
             distance: 20,
@@ -53,31 +67,32 @@
         plotBands: [{
             from: 0,
             to: 10,
-            color: 'rgba(242, 0, 255, 0.26)',
+            color: 'rgba(0, 13, 255, 0.19)', // green
             thickness: 20
         }, 
         {
             from: 10,
-            to: 28,
-            color: 'rgba(255, 255, 0, 0.55)', 
+            to: 30,
+            color: 'rgba(255, 255, 0, 0.61)', // yellow
             thickness: 20
-        }, {
-             from: 28,
+        }, 
+        {
+             from: 30,
              to: 35,
-             color: 'rgba(255, 0, 0, 0.61)',
+             color: 'rgba(255, 0, 0, 0.61)', // red
              thickness: 20
          }
     ]
     },
-    
+
     series: [{
         name: 'Temperatura',
         data: [0],
         tooltip: {
-            valueSuffix: ' V'
+            valueSuffix: ' °'
         },
         dataLabels: {
-            format: '{y} V',
+            format: '{y} °',
             borderWidth: 0,
             color: (
                 Highcharts.defaultOptions.title &&
@@ -99,28 +114,29 @@
             backgroundColor: 'gray',
             radius: 6
         }
-    
+
     }]
+
+});
+
+// Add some life
+setInterval(() => {
     
-    });
+const chart = Highcharts.charts[0];
+if (chart && !chart.renderer.forExport) {
+    const point = chart.series[0].points[0],
     
-    // Add some life
-    setInterval(() => {
-    const chart = Highcharts.charts[0];
-    if (chart && !chart.renderer.forExport) {
-        const point = chart.series[0].points[0],
-        
-        // aqui
-        inc = <?= $temp ?>;
-    
-        // let newVal = point.y + inc;
-        // if (newVal < 0 || newVal > 5) {
-        //     newVal = point.y - inc;
-        // }
-    
-        point.update(inc);
-    }
-    
-    }, 3000);
-    </script>
-</div>
+    // aqui
+    inc = <?= $temp ?>;
+    console.log(inc);
+
+
+    point.update(inc);
+}
+
+}, 3000);
+
+</script>
+
+
+</html>

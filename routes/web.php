@@ -22,5 +22,5 @@ Route::get('/', function () {
 Route::get('/ver', [AttendanceController::class, 'ver'])->name('ver');
 Route::get('/inasistencias', [AttendanceController::class, 'inasistencias'])->name('inasistencias');
 Route::get('/entradas-salidas', [AttendanceController::class, 'entradas_salidas'])->name('entradas-salidas');
-Route::get(' /temperatura-voltaje', [AttendanceController::class, 'temperatura_voltaje'])->name('temperatura-voltaje');
+Route::get('/temperatura-voltaje', [AttendanceController::class, 'temperatura_voltaje'])->name('temperatura-voltaje');
 Route::get('/carga-temp', [AttendanceController::class, 'carga_temp'])->name('carga-temp');

@@ -11,8 +11,8 @@
 
     <figure class="highcharts-figure">
         <div id="container"></div>
-
     </figure>
+
 
 </body>
 <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -66,13 +66,13 @@ Highcharts.chart('container', {
         plotBands: [{
             from: 1,
             to: 5,
-            color: 'rgba(0, 13, 255, 0.19)', // green
+            color: 'rgba(0, 0, 255, 0.56)', // green
             thickness: 20
         }, 
         {
             from: 0,
             to: 1,
-            color: 'rgba(255, 0, 0, 0.19)', // yellow
+            color: 'rgba(230, 230, 53, 0.42)', // yellow
             thickness: 20
         }, 
         //{
@@ -120,22 +120,26 @@ Highcharts.chart('container', {
 
 // Add some life
 setInterval(() => {
+    
 const chart = Highcharts.charts[0];
 if (chart && !chart.renderer.forExport) {
     const point = chart.series[0].points[0],
     
     // aqui
     inc = <?= $voltaje ?>;
-
+    console.log(inc);
     // let newVal = point.y + inc;
     // if (newVal < 0 || newVal > 5) {
     //     newVal = point.y - inc;
     // }
+    
 
     point.update(inc);
 }
 
 }, 3000);
+
 </script>
+
 
 </html>
