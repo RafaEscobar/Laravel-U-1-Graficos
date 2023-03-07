@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col">
             <div id="container">
-
+            {{-- <h1>Hola </h1> --}}
             </div>
         </div>
     </div>
@@ -26,65 +26,65 @@
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <script>
 
-// Create the chart
-Highcharts.chart('container', {
-    chart: {
-        type: 'column'
-    },
-    title: {
-        align: 'left',
-        text: 'Asistencias de la semana '
-    },
-    accessibility: {
-        announceNewData: {
-            enabled: true
-        }
-    },
-    xAxis: {
-        type: 'category'
-    },
-    yAxis: {
+    // Create the chart
+    Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
         title: {
-            text: 'Total de asistencias por día'
-        }
-
-    },
-    legend: {
-        enabled: false
-    },
-    plotOptions: {
-        series: {
-            borderWidth: 0,
-            dataLabels: {
-                enabled: true,
-                format: '{point.y}'
-            }
-        }
-    },
-
-    tooltip: {
-        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> asistencia<br/>'
-    },
-
-    series: [
-        {
-            name: 'Asistencias',
-            colorByPoint: true,
-            data: <?= $data ?>
-        }
-    ],
-    drilldown: {
-        breadcrumbs: {
-            position: {
-                align: 'right'
+            align: 'left',
+            text: 'Asistencias de la semana '
+        },
+        accessibility: {
+            announceNewData: {
+                enabled: true
             }
         },
-        series: <?= $data ?>
-            
-    }
-});
-    </script>
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: 'Total de asistencias por día'
+            }
+
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y}'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> asistencia<br/>'
+        },
+
+        series: [
+            {
+                name: 'Asistencias',
+                colorByPoint: true,
+                data: <?= $data ?>
+            }
+        ],
+        drilldown: {
+            breadcrumbs: {
+                position: {
+                    align: 'right'
+                }
+            },
+            series: <?= $data ?>
+
+        }
+    });
+</script>
 </body>
 </html>
 

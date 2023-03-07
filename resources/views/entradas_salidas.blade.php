@@ -26,7 +26,7 @@
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 <script>
-
+console.log(<?php $entradas ?>)
 // Data retrieved from https://netmarketshare.com
 Highcharts.chart('container', {
     chart: {
@@ -34,7 +34,7 @@ Highcharts.chart('container', {
         plotBorderWidth: null,
         plotShadow: false,
         type: 'pie'
-    },
+    }, 
     title: {
         text: 'Relacion de registros de entradas y salidas de personal',
         align: 'left'

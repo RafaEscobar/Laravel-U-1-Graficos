@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body class="container">
-
+{{-- ==================================================== --}}
     <figure class="highcharts-figure">
         <div id="container"></div>
     </figure>
@@ -67,7 +67,7 @@ Highcharts.chart('container', {
         plotBands: [{
             from: 0,
             to: 10,
-            color: 'rgba(0, 13, 255, 0.19)', // green
+            color: 'rgba(194, 255, 79, 1)', // green
             thickness: 20
         }, 
         {
@@ -137,6 +137,6 @@ if (chart && !chart.renderer.forExport) {
 }, 3000);
 
 </script>
-
+{{-- ==================================================== --}}
 
 </html>
